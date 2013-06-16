@@ -16,9 +16,8 @@ fb = Feedback()
 i = 0
 try:
     for b in user.bookmarks:
-        print b
-        print '\n'
-        fb.add_item(b[2], subtitle=b[2], uid=i, arg=b[0])
+        tags = tuple(b[1])
+        fb.add_item(b[2],subtitle=str(tags), uid=i, arg=b[0])
 
 except SyntaxError as e:
     if ('EOF', 'EOL' in e.msg):
@@ -30,3 +29,4 @@ except Exception as e:
             subtitle=e.message) 
 
 print fb
+

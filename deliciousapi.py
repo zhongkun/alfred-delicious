@@ -921,6 +921,7 @@ class DeliciousAPI(object):
             # scraping the Delicious.com website directly
             if max_bookmarks > 0 and max_bookmarks <= 100:
                 if tag:
+                    tag = tag.replace(' ', '+')
                     path = "/v2/json/%s/%s?count=100" % (username,tag)
                 else:
                     path = "/v2/json/%s?count=100" % username
@@ -1249,6 +1250,6 @@ if __name__ == "__main__":
     print "========================================================="
 #    document = d.get_url(url, max_bookmarks=max_bookmarks)
 #    print d.get_tags_of_user('kun77416')
-    user = d.get_user('kun77416', None, 'shell')
+    user = d.get_user('kun77416', None, 'tool shell')
     print user.bookmarks
 #    print document
